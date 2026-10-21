@@ -6,7 +6,7 @@
     "currency": "USD",
     "units": "$ millions"
   },
-  "latest": "Q2'26",
+  "latest": "Q3'26",
   "quarters": [
     {
       "period": "Q1'25",
@@ -290,6 +290,58 @@
         "net_income_delta": -58,
         "deliveries_pct": 25.0,
         "storage_pct": 40.6
+      }
+    },
+    {
+      "period": "Q3'26",
+      "revenue": 28046,
+      "op_income": 718,
+      "net_income": 787,
+      "eps_basic": 0.24,
+      "eps_diluted": 0.22,
+      "gross_profit": 5494,
+      "gross_margin_pct": 19.6,
+      "op_margin_pct": 2.6,
+      "net_margin_pct": 2.8,
+      "segments": {
+        "automotive": {
+          "revenue": 20560,
+          "share_pct": 73.3,
+          "gross_profit": 3806
+        },
+        "energy": {
+          "revenue": 2881,
+          "share_pct": 10.3,
+          "gross_profit": 954
+        },
+        "services": {
+          "revenue": 4605,
+          "share_pct": 16.4,
+          "gross_profit": 734
+        }
+      },
+      "products": {
+        "automotive_sales": 20094,
+        "regulatory_credits": 113,
+        "automotive_leasing": 353
+      },
+      "deliveries": 486532,
+      "production": 464391,
+      "storage_gwh": 13.7,
+      "stations": 8904,
+      "connectors": 84465,
+      "source": {
+        "form": "8-K",
+        "accession": "0001628280-26-066738",
+        "filed": "2026-10-21"
+      },
+      "yoy": {
+        "vs": "Q3'25",
+        "revenue_pct": -0.2,
+        "op_income_delta": -906,
+        "net_income_delta": -586,
+        "deliveries_pct": -2.1,
+        "storage_pct": 9.6
       }
     }
   ],
