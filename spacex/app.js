@@ -16,6 +16,53 @@ const fmtB = (v) => v == null ? "—" : (v < 0 ? "−$" : "$") +
   (Math.abs(v) / 1000).toFixed(2) + "B";
 const fmtPct = (v) => v == null ? "—" : (v > 0 ? "+" : "") + v.toFixed(1) + "%";
 const fmtEps = (v) => v == null ? "—" : (v < 0 ? "−$" : "$") + Math.abs(v).toFixed(2);
+const fmtSubs = (v) => v == null ? "—" : v.toFixed(1) + "M";
+const fmtGw = (v) => v == null ? "—" : v.toFixed(1) + " GW";
+const fmtArpu = (v) => v == null ? "—" : "$" + Math.round(v);
+const fmtInt2 = (v) => v == null ? "—" : Math.round(v).toLocaleString("en-US");
+
+/* Engine color from each quarter's filings — Starlink growth/ARPU,
+   SI compute buildout, launch cadence and Starship milestones.
+   Keyed by period; add the new quarter's notes when its filing lands. */
+const SPCX_NOTES = {
+  "Q3'26": [
+    "Starship: Flight 14 was the first orbital Starship flight and the " +
+    "first revenue-generating Starship mission — 26 Starlink V3 " +
+    "satellites deployed, ~10x the downlink capacity added by a " +
+    "Falcon 9 Starlink launch.",
+    "Starlink: +1.6M subscribers in the quarter on developed-market " +
+    "growth; over 3,800 aircraft now Starlink-equipped, plus hundreds " +
+    "of thousands of enterprise subscribers on top of the consumer " +
+    "count. After quarter-end, SpaceX agreed to acquire 800 MHz " +
+    "spectrum licenses to advance Starlink Mobile (close expected " +
+    "H1 2027).",
+    "SI: the revenue inflection is a compute story — cloud services " +
+    "agreements activated in the quarter plus the Cursor acquisition " +
+    "and Grok adoption (Grok Bot, its always-on agentic system, " +
+    "launched). SI operating income of $0.43B absorbed $1.2B of " +
+    "Cursor share-based compensation; SI Adjusted EBITDA was $5.0B.",
+    "Launch: 35 launches in Q3 (12 customer / 23 internal) and 113 " +
+    "in the first nine months. Customer work included NASA's Nancy " +
+    "Grace Roman Space Telescope; new pipeline signings include " +
+    "three more NASA ISS Crew missions and 18 National Security " +
+    "Space Launch missions.",
+  ],
+  "Q2'26": [
+    "Starlink: subscribers doubled YoY (6.0M → 12.0M) while ARPU fell " +
+    "~22% YoY — the 10-Q attributes the ARPU decline to international " +
+    "expansion and lower-priced service plans.",
+    "Compute: nameplate draw jumped 0.4 GW → 1.4 GW YoY as the " +
+    "Colossus buildout accelerated.",
+    "Launch: 38 launches (37 Falcon + 1 Starship); 485 tons to orbit.",
+  ],
+  "Q1'26": [
+    "Starlink: 10.3M subscribers across 164 countries and ~9,600 " +
+    "Starlink satellites in orbit — about 75% of all active " +
+    "maneuverable satellites (S-1).",
+    "Compute: nameplate draw crossed 1 GW (1.0 GW vs 0.3 GW a year " +
+    "earlier).",
+  ],
+};
 
 function el(tag, cls, text) {
   const e = document.createElement(tag);
@@ -182,6 +229,16 @@ function renderKpis(root, latest) {
   grid.appendChild(kpiCard("Diluted EPS", fmtEps(latest.eps_diluted)));
   grid.appendChild(kpiCard("Operating margin", fmtPct(latest.op_margin_pct)));
   grid.appendChild(kpiCard("Net margin", fmtPct(latest.net_margin_pct)));
+  grid.appendChild(kpiCard("Starlink subs", fmtSubs(latest.starlink_subs_m),
+    latest.yoy && latest.yoy.subs_pct != null ?
+      fmtPct(latest.yoy.subs_pct) + " YoY" : null,
+    latest.yoy && latest.yoy.subs_pct >= 0 ? "up" : "down"));
+  grid.appendChild(kpiCard("Nameplate compute", fmtGw(latest.compute_gw),
+    latest.yoy && latest.yoy.compute_pct != null ?
+      fmtPct(latest.yoy.compute_pct) + " YoY" : null,
+    latest.yoy && latest.yoy.compute_pct >= 0 ? "up" : "down"));
+  grid.appendChild(kpiCard("Launches", fmtInt2(latest.launches)));
+  grid.appendChild(kpiCard("Starlink ARPU", fmtArpu(latest.starlink_arpu)));
   card.appendChild(grid);
   root.appendChild(card);
 }
@@ -283,6 +340,77 @@ function renderTables(root, quarters, annuals) {
     ["AI", (p) => fmtB(p.segments.ai.op_income)],
   ]));
   root.appendChild(s);
+
+  const o = el("div", "card");
+  o.appendChild(el("h2", null, "Operating metrics"));
+  o.appendChild(el("p", "sub", "The company's Key Business Metrics · subscribers and compute at period end · ARPU $ per month"));
+  o.appendChild(moneyTable(quarters, [
+    ["Launches", (p) => fmtInt2(p.launches)],
+    ["Mass to orbit (t)", (p) => fmtInt2(p.mass_to_orbit_t)],
+    ["Starlink subs", (p) => fmtSubs(p.starlink_subs_m)],
+    ["Starlink ARPU", (p) => fmtArpu(p.starlink_arpu)],
+    ["Nameplate compute", (p) => fmtGw(p.compute_gw)],
+  ]));
+  root.appendChild(o);
+}
+
+function renderEngines(root, data) {
+  const qs = data.quarters.filter((q) => q.starlink_subs_m != null);
+  if (!qs.length) return;
+  const latest = qs[qs.length - 1];
+  const all = data.quarters;
+  const li = all.indexOf(latest);
+  const prev = li > 0 ? all[li - 1] : null;
+  const card = el("div", "card");
+  card.appendChild(el("h2", null, "Starlink, Compute & Launch — the engines"));
+  card.appendChild(el("p", "sub",
+    "Starlink subscribers (millions, period end) · nameplate compute draw " +
+    "(GW, period end) · launches and mass to orbit, from each filing's " +
+    "Key Business Metrics and segment operating data"));
+  const ul = el("ul", "insights");
+  let head = `Starlink subscribers reached ${fmtSubs(latest.starlink_subs_m)} ` +
+    `in ${latest.period}`;
+  if (prev && prev.starlink_subs_m != null) {
+    const adds = (latest.starlink_subs_m - prev.starlink_subs_m).toFixed(1);
+    head += ` (+${adds}M in the quarter)`;
+  }
+  if (latest.yoy && latest.yoy.subs_pct != null) {
+    head += `, ${fmtPct(latest.yoy.subs_pct)} YoY`;
+  }
+  head += `, at ${fmtArpu(latest.starlink_arpu)}/mo ARPU — the recurring ` +
+    `base under Connectivity's ${fmtB(latest.segments.connectivity.revenue)} ` +
+    `of revenue and ${fmtB(latest.segments.connectivity.op_income)} of ` +
+    `operating income.`;
+  ul.appendChild(el("li", null, head));
+  ul.appendChild(el("li", null,
+    `Nameplate compute hit ${fmtGw(latest.compute_gw)}` +
+    (latest.yoy && latest.yoy.compute_pct != null ?
+      ` (${fmtPct(latest.yoy.compute_pct)} YoY)` : "") +
+    ` — the capacity behind SI's ${fmtB(latest.segments.ai.revenue)} ` +
+    `revenue quarter. Trend: ` +
+    qs.map((q) => q.period + " " + fmtGw(q.compute_gw)).join(" → ") + `.`));
+  ul.appendChild(el("li", null,
+    `${fmtInt2(latest.launches)} launches put ` +
+    `${fmtInt2(latest.mass_to_orbit_t)} tons to orbit in ${latest.period} — ` +
+    `most of it internal Starlink deployment that Space revenue never ` +
+    `sees, which is why launch scale grows faster than Space revenue.`));
+  (SPCX_NOTES[latest.period] || []).forEach((t) =>
+    ul.appendChild(el("li", null, t)));
+  card.appendChild(ul);
+  card.appendChild(moneyTable(qs, [
+    ["Starlink subs", (p) => fmtSubs(p.starlink_subs_m)],
+    ["Net adds (M)", (p) => {
+      const i = all.indexOf(p);
+      const pr = i > 0 ? all[i - 1] : null;
+      return pr && pr.starlink_subs_m != null ?
+        "+" + (p.starlink_subs_m - pr.starlink_subs_m).toFixed(1) : "—";
+    }],
+    ["ARPU", (p) => fmtArpu(p.starlink_arpu)],
+    ["Compute", (p) => fmtGw(p.compute_gw)],
+    ["Launches", (p) => fmtInt2(p.launches)],
+    ["Mass (t)", (p) => fmtInt2(p.mass_to_orbit_t)],
+  ]));
+  root.appendChild(card);
 }
 
 function renderInsights(root, data) {
@@ -311,6 +439,16 @@ function renderInsights(root, data) {
     items.push(`First profitable quarter in the dataset: net income ` +
       `${fmtB(latest.net_income)} vs ${fmtB(prev.net_income)} in ${prev.period}.`);
   }
+  if (latest.starlink_subs_m != null) {
+    items.push(`Under the financials, the engines compounded: Starlink ` +
+      `subscribers ${fmtSubs(latest.starlink_subs_m)}` +
+      (latest.yoy && latest.yoy.subs_pct != null ?
+        ` (${fmtPct(latest.yoy.subs_pct)} YoY)` : "") +
+      `, nameplate compute ${fmtGw(latest.compute_gw)}` +
+      (latest.yoy && latest.yoy.compute_pct != null ?
+        ` (${fmtPct(latest.yoy.compute_pct)} YoY)` : "") +
+      `, on ${fmtInt2(latest.launches)} launches. See the engines card below.`);
+  }
   items.forEach((t) => ul.appendChild(el("li", null, t)));
   card.appendChild(ul);
   root.appendChild(card);
@@ -337,6 +475,7 @@ async function main() {
     `(${fmtPct(latest.yoy.revenue_pct)} YoY)`;
   renderKpis(root, latest);
   renderInsights(root, data);
+  renderEngines(root, data);
   renderTrend(root, data.quarters);
   renderProfit(root, data.quarters, data.annuals);
   renderTables(root, data.quarters, data.annuals);

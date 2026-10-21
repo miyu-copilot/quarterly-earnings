@@ -18,6 +18,23 @@ Provenance: S-1 filed 2026-05-20 (accn 0001628280-26-036936) carries
 FY2023/FY2024/FY2025 annuals and Q1'25/Q1'26 interim statements;
 10-Q for quarter ended 2026-06-30 filed 2026-08-04
 (accn 0001628280-26-052535) carries Q2'25/H1'25/Q2'26/H1'26 comparatives.
+
+Operating metrics (the company's own Key Business Metrics):
+- starlink_subs_m: Starlink subscribers in millions, end of period
+  (unique service lines; excludes managed enterprise/government contracts).
+  S-1 segment table: Q1'25 5.0, Q1'26 10.3, FY2023 2.3, FY2024 4.4,
+  FY2025 8.9. 10-Q KPI table: Q2'25 6.0, Q2'26 12.0. Q3'26 release
+  segment table: Q3'25 7.2, Q3'26 13.6.
+- starlink_arpu: $ per month. S-1: Q1'25 86, Q1'26 66, FY2023 99,
+  FY2024 91, FY2025 81. 10-Q: Q2'25 85, Q2'26 66. Release: Q3'25 83,
+  Q3'26 69.
+- compute_gw: nameplate compute draw in GW, end of period. S-1: Q1'25
+  0.3, Q1'26 1.0, FY2023 0.0, FY2024 0.3, FY2025 0.8. 10-Q: Q2'25 0.4,
+  Q2'26 1.4. Release: Q3'25 0.6, Q3'26 1.7.
+- launches / mass_to_orbit_t for Q2'25 (46 / 652 t) and Q2'26 (38 /
+  485 t) were previously None; the 10-Q KPI tables (Falcon 45 + Starship
+  1 in Q2'25; Falcon 37 + Starship 1 in Q2'26; mass tables) and the
+  Q3'26 release's comparative columns now pin them.
 """
 
 S1 = {"form": "S-1", "accession": "0001628280-26-036936", "filed": "2026-05-20"}
@@ -42,7 +59,7 @@ FACTS = {
         "products": {"launch_services": 1964, "launch_development": 1593,
                      "consumer": 2817, "enterprise_government": 1052,
                      "advertising": 2323, "ai_solutions_infrastructure": 638},
-        "launches": 98, "mass_to_orbit_t": 1210, "src": S1,
+        "launches": 98, "mass_to_orbit_t": 1210, "starlink_subs_m": 2.3, "starlink_arpu": 99, "compute_gw": 0.0, "src": S1,
     },
     "2024": {
         "revenue": 14015, "op_income": 466, "net_income": 791,
@@ -52,7 +69,7 @@ FACTS = {
         "products": {"launch_services": 2584, "launch_development": 1212,
                      "consumer": 4830, "enterprise_government": 2769,
                      "advertising": 1728, "ai_solutions_infrastructure": 892},
-        "launches": 138, "mass_to_orbit_t": 1699, "src": S1,
+        "launches": 138, "mass_to_orbit_t": 1699, "starlink_subs_m": 4.4, "starlink_arpu": 91, "compute_gw": 0.3, "src": S1,
     },
     "2025": {
         "revenue": 18674, "op_income": -2589, "net_income": -4937,
@@ -62,7 +79,7 @@ FACTS = {
         "products": {"launch_services": 2576, "launch_development": 1510,
                      "consumer": 7208, "enterprise_government": 4179,
                      "advertising": 1844, "ai_solutions_infrastructure": 1357},
-        "launches": 170, "mass_to_orbit_t": 2213, "src": S1,
+        "launches": 170, "mass_to_orbit_t": 2213, "starlink_subs_m": 8.9, "starlink_arpu": 81, "compute_gw": 0.8, "src": S1,
     },
     "Q1'25": {
         "revenue": 4067, "op_income": 27, "net_income": -528,
@@ -72,7 +89,7 @@ FACTS = {
         "products": {"launch_services": 566, "launch_development": 299,
                      "consumer": 1492, "enterprise_government": 983,
                      "advertising": 443, "ai_solutions_infrastructure": 284},
-        "launches": 38, "mass_to_orbit_t": 450, "src": S1,
+        "launches": 38, "mass_to_orbit_t": 450, "starlink_subs_m": 5.0, "starlink_arpu": 86, "compute_gw": 0.3, "src": S1,
     },
     "Q2'25": {
         "revenue": 4071, "op_income": -970, "net_income": -1008,
@@ -82,7 +99,7 @@ FACTS = {
         "products": {"launch_services": 490, "launch_development": 256,
                      "consumer": 1721, "enterprise_government": 867,
                      "advertising": 426, "ai_solutions_infrastructure": 311},
-        "launches": None, "mass_to_orbit_t": None, "src": Q2,
+        "launches": 46, "mass_to_orbit_t": 652, "starlink_subs_m": 6.0, "starlink_arpu": 85, "compute_gw": 0.4, "src": Q2,
     },
     "Q3'25": {
         "revenue": 5576, "op_income": -273, "net_income": -1054,
@@ -92,7 +109,7 @@ FACTS = {
         "products": {"launch_services": 1000, "launch_development": 666,
                      "consumer": 1986, "enterprise_government": 1111,
                      "advertising": 454, "ai_solutions_infrastructure": 359},
-        "launches": 44, "mass_to_orbit_t": 525, "src": E8K,
+        "launches": 44, "mass_to_orbit_t": 525, "starlink_subs_m": 7.2, "starlink_arpu": 83, "compute_gw": 0.6, "src": E8K,
     },
     "Q3'26": {
         "revenue": 14575, "op_income": 2791, "net_income": 4404,
@@ -102,7 +119,7 @@ FACTS = {
         "products": {"launch_services": 1130, "launch_development": 637,
                      "consumer": 3121, "enterprise_government": 2127,
                      "advertising": 538, "ai_solutions_infrastructure": 7022},
-        "launches": 35, "mass_to_orbit_t": 476, "src": E8K,
+        "launches": 35, "mass_to_orbit_t": 476, "starlink_subs_m": 13.6, "starlink_arpu": 69, "compute_gw": 1.7, "src": E8K,
     },
     "Q1'26": {
         "revenue": 4694, "op_income": -1943, "net_income": -4276,
@@ -112,7 +129,7 @@ FACTS = {
         "products": {"launch_services": 330, "launch_development": 289,
                      "consumer": 2148, "enterprise_government": 1109,
                      "advertising": 343, "ai_solutions_infrastructure": 475},
-        "launches": 40, "mass_to_orbit_t": 556, "src": S1,
+        "launches": 40, "mass_to_orbit_t": 556, "starlink_subs_m": 10.3, "starlink_arpu": 66, "compute_gw": 1.0, "src": S1,
     },
     "Q2'26": {
         "revenue": 7814, "op_income": -143, "net_income": -541,
@@ -122,7 +139,7 @@ FACTS = {
         "products": {"launch_services": 648, "launch_development": 314,
                      "consumer": 2485, "enterprise_government": 1806,
                      "advertising": 367, "ai_solutions_infrastructure": 2194},
-        "launches": None, "mass_to_orbit_t": None, "src": Q2,
+        "launches": 38, "mass_to_orbit_t": 485, "starlink_subs_m": 12.0, "starlink_arpu": 66, "compute_gw": 1.4, "src": Q2,
     },
 }
 
@@ -164,6 +181,9 @@ def build_period(label, yoy=None):
         "products": dict(f["products"]),
         "launches": f["launches"],
         "mass_to_orbit_t": f["mass_to_orbit_t"],
+        "starlink_subs_m": f.get("starlink_subs_m"),
+        "starlink_arpu": f.get("starlink_arpu"),
+        "compute_gw": f.get("compute_gw"),
         "source": dict(f["src"]),
     }
     if yoy:
@@ -173,6 +193,11 @@ def build_period(label, yoy=None):
             "revenue_pct": _pct(rev, y["revenue"]),
             "op_income_delta": f["op_income"] - y["op_income"],
             "net_income_delta": f["net_income"] - y["net_income"],
+            "subs_pct": _pct(f.get("starlink_subs_m"),
+                             y.get("starlink_subs_m")),
+            "compute_pct": _pct(f.get("compute_gw"), y.get("compute_gw")),
+            "arpu_pct": _pct(f.get("starlink_arpu"),
+                             y.get("starlink_arpu")),
         }
     else:
         row["yoy"] = None

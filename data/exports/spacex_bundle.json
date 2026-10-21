@@ -44,6 +44,9 @@
       },
       "launches": 38,
       "mass_to_orbit_t": 450,
+      "starlink_subs_m": 5.0,
+      "starlink_arpu": 86,
+      "compute_gw": 0.3,
       "source": {
         "form": "S-1",
         "accession": "0001628280-26-036936",
@@ -85,8 +88,11 @@
         "advertising": 426,
         "ai_solutions_infrastructure": 311
       },
-      "launches": null,
-      "mass_to_orbit_t": null,
+      "launches": 46,
+      "mass_to_orbit_t": 652,
+      "starlink_subs_m": 6.0,
+      "starlink_arpu": 85,
+      "compute_gw": 0.4,
       "source": {
         "form": "10-Q",
         "accession": "0001628280-26-052535",
@@ -131,6 +137,9 @@
       },
       "launches": 44,
       "mass_to_orbit_t": 525,
+      "starlink_subs_m": 7.2,
+      "starlink_arpu": 83,
+      "compute_gw": 0.6,
       "source": {
         "form": "8-K",
         "accession": "0001628280-26-066482",
@@ -175,6 +184,9 @@
       },
       "launches": 40,
       "mass_to_orbit_t": 556,
+      "starlink_subs_m": 10.3,
+      "starlink_arpu": 66,
+      "compute_gw": 1.0,
       "source": {
         "form": "S-1",
         "accession": "0001628280-26-036936",
@@ -184,7 +196,10 @@
         "vs": "Q1'25",
         "revenue_pct": 15.4,
         "op_income_delta": -1970,
-        "net_income_delta": -3748
+        "net_income_delta": -3748,
+        "subs_pct": 106.0,
+        "compute_pct": 233.3,
+        "arpu_pct": -23.3
       }
     },
     {
@@ -221,8 +236,11 @@
         "advertising": 367,
         "ai_solutions_infrastructure": 2194
       },
-      "launches": null,
-      "mass_to_orbit_t": null,
+      "launches": 38,
+      "mass_to_orbit_t": 485,
+      "starlink_subs_m": 12.0,
+      "starlink_arpu": 66,
+      "compute_gw": 1.4,
       "source": {
         "form": "10-Q",
         "accession": "0001628280-26-052535",
@@ -233,7 +251,10 @@
         "vs": "Q2'25",
         "revenue_pct": 91.9,
         "op_income_delta": 827,
-        "net_income_delta": 467
+        "net_income_delta": 467,
+        "subs_pct": 100.0,
+        "compute_pct": 250.0,
+        "arpu_pct": -22.4
       }
     },
     {
@@ -272,6 +293,9 @@
       },
       "launches": 35,
       "mass_to_orbit_t": 476,
+      "starlink_subs_m": 13.6,
+      "starlink_arpu": 69,
+      "compute_gw": 1.7,
       "source": {
         "form": "8-K",
         "accession": "0001628280-26-066482",
@@ -282,7 +306,10 @@
         "vs": "Q3'25",
         "revenue_pct": 161.4,
         "op_income_delta": 3064,
-        "net_income_delta": 5458
+        "net_income_delta": 5458,
+        "subs_pct": 88.9,
+        "compute_pct": 183.3,
+        "arpu_pct": -16.9
       }
     }
   ],
@@ -323,6 +350,9 @@
       },
       "launches": 98,
       "mass_to_orbit_t": 1210,
+      "starlink_subs_m": 2.3,
+      "starlink_arpu": 99,
+      "compute_gw": 0.0,
       "source": {
         "form": "S-1",
         "accession": "0001628280-26-036936",
@@ -366,6 +396,9 @@
       },
       "launches": 138,
       "mass_to_orbit_t": 1699,
+      "starlink_subs_m": 4.4,
+      "starlink_arpu": 91,
+      "compute_gw": 0.3,
       "source": {
         "form": "S-1",
         "accession": "0001628280-26-036936",
@@ -375,7 +408,10 @@
         "vs": "2023",
         "revenue_pct": 34.9,
         "op_income_delta": 3971,
-        "net_income_delta": 5419
+        "net_income_delta": 5419,
+        "subs_pct": 91.3,
+        "compute_pct": null,
+        "arpu_pct": -8.1
       }
     },
     {
@@ -414,6 +450,9 @@
       },
       "launches": 170,
       "mass_to_orbit_t": 2213,
+      "starlink_subs_m": 8.9,
+      "starlink_arpu": 81,
+      "compute_gw": 0.8,
       "source": {
         "form": "S-1",
         "accession": "0001628280-26-036936",
@@ -423,7 +462,10 @@
         "vs": "2024",
         "revenue_pct": 33.2,
         "op_income_delta": -3055,
-        "net_income_delta": -5728
+        "net_income_delta": -5728,
+        "subs_pct": 102.3,
+        "compute_pct": 166.7,
+        "arpu_pct": -11.0
       }
     }
   ]

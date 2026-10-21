@@ -39,11 +39,35 @@ class TestNormalize(unittest.TestCase):
         self.assertAlmostEqual(q3["yoy"]["revenue_pct"], 161.4, places=1)
         self.assertEqual(q3["yoy"]["vs"], "Q3'25")
 
-    def test_missing_stays_missing(self):
+    def test_operating_metrics(self):
+        # Starlink subs (M) / ARPU ($/mo) / nameplate compute (GW) from
+        # the filings' Key Business Metrics tables (S-1, 10-Q, Q3'26
+        # release segment tables).
         data = normalize()
-        q2 = next(q for q in data["quarters"] if q["period"] == "Q2'25")
-        self.assertIsNone(q2["launches"])
-        self.assertIsNone(q2["mass_to_orbit_t"])
+        got = {q["period"]: (q["starlink_subs_m"], q["starlink_arpu"],
+                              q["compute_gw"]) for q in data["quarters"]}
+        self.assertEqual(got, {
+            "Q1'25": (5.0, 86, 0.3), "Q2'25": (6.0, 85, 0.4),
+            "Q3'25": (7.2, 83, 0.6), "Q1'26": (10.3, 66, 1.0),
+            "Q2'26": (12.0, 66, 1.4), "Q3'26": (13.6, 69, 1.7),
+        })
+        q3 = next(q for q in data["quarters"] if q["period"] == "Q3'26")
+        # (13.6 - 7.2) / 7.2 * 100 = 88.9%; (1.7 - 0.6) / 0.6 = 183.3%
+        self.assertAlmostEqual(q3["yoy"]["subs_pct"], 88.9, places=1)
+        self.assertAlmostEqual(q3["yoy"]["compute_pct"], 183.3, places=1)
+        fy25 = next(a for a in data["annuals"] if a["period"] == "2025")
+        self.assertEqual((fy25["starlink_subs_m"], fy25["starlink_arpu"],
+                          fy25["compute_gw"]), (8.9, 81, 0.8))
+
+    def test_launch_gaps_filled(self):
+        # Q2'25 / Q2'26 launches + mass were None until the 10-Q KPI
+        # tables and the Q3'26 release comparatives pinned them.
+        data = normalize()
+        q = {x["period"]: x for x in data["quarters"]}
+        self.assertEqual((q["Q2'25"]["launches"],
+                          q["Q2'25"]["mass_to_orbit_t"]), (46, 652))
+        self.assertEqual((q["Q2'26"]["launches"],
+                          q["Q2'26"]["mass_to_orbit_t"]), (38, 485))
 
     def test_10q_xbrl_matches_curated(self):
         # Curated Q2'26 segment revenue must equal the inline-XBRL facts.
