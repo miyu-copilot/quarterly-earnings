@@ -79,6 +79,16 @@ RELEASES = [
         "note": "Q2'26 update letter (Ex. 99.1).",
     },
     {
+        "period": "Q3'26",
+        "form": "8-K",
+        "accession": "0001628280-26-066738",
+        "filed": "2026-10-21",
+        "primary": "exhibit9914.htm",
+        "cache": "tsla-20261021-ex99.htm",
+        "note": "Q3'26 update letter (Ex. 99.1; exhibit filed as "
+                "'exhibit9914.htm').",
+    },
+    {
         "period": "FY2025",
         "form": "10-K",
         "accession": "0001628280-26-003952",

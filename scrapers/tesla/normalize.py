@@ -42,6 +42,8 @@ L_Q1_26 = {"form": "8-K", "accession": "0001628280-26-026551",
            "filed": "2026-04-22"}
 L_Q2_26 = {"form": "8-K", "accession": "0001628280-26-049213",
            "filed": "2026-07-22"}
+L_Q3_26 = {"form": "8-K", "accession": "0001628280-26-066738",
+           "filed": "2026-10-21"}
 K_FY25 = {"form": "10-K", "accession": "0001628280-26-003952",
           "filed": "2026-01-29",
           "note": "Audited FY2023-FY2025 statements; revenue note (R44) "
@@ -144,9 +146,20 @@ FACTS = {
         "deliveries": 480126, "production": 451758, "storage_gwh": 13.5,
         "stations": 8704, "connectors": 82357, "src": L_Q2_26,
     },
+    "Q3'26": {
+        "revenue": 28046, "op_income": 718, "net_income": 787,
+        "eps_basic": 0.24, "eps_diluted": 0.22, "gross_profit": 5494,
+        "seg_rev": {"automotive": 20560, "energy": 2881, "services": 4605},
+        "seg_gp": {"automotive": 3806, "energy": 954, "services": 734},
+        "products": {"automotive_sales": 20094, "regulatory_credits": 113,
+                     "automotive_leasing": 353},
+        "deliveries": 486532, "production": 464391, "storage_gwh": 13.7,
+        "stations": 8904, "connectors": 84465, "src": L_Q3_26,
+    },
 }
 
-QUARTER_ORDER = ["Q1'25", "Q2'25", "Q3'25", "Q4'25", "Q1'26", "Q2'26"]
+QUARTER_ORDER = ["Q1'25", "Q2'25", "Q3'25", "Q4'25", "Q1'26", "Q2'26",
+                 "Q3'26"]
 ANNUAL_ORDER = ["2023", "2024", "2025"]
 
 
@@ -217,6 +230,7 @@ def normalize():
         build_period("Q4'25"),
         build_period("Q1'26", yoy="Q1'25"),
         build_period("Q2'26", yoy="Q2'25"),
+        build_period("Q3'26", yoy="Q3'25"),
     ]
     annuals = [
         build_period("2023"),
@@ -227,7 +241,7 @@ def normalize():
         "company": {"name": "Tesla, Inc.",
                     "ticker": "TSLA", "exchange": "Nasdaq",
                     "currency": "USD", "units": "$ millions"},
-        "latest": "Q2'26",
+        "latest": "Q3'26",
         "quarters": quarters,
         "annuals": annuals,
     }
