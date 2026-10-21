@@ -1,0 +1,341 @@
+{
+  "company": {
+    "name": "Meta Platforms, Inc.",
+    "ticker": "META",
+    "exchange": "Nasdaq",
+    "segments": [
+      "foa",
+      "reality_labs"
+    ],
+    "segment_labels": {
+      "foa": "Family of Apps",
+      "reality_labs": "Reality Labs"
+    },
+    "products": [
+      "advertising",
+      "other"
+    ],
+    "product_labels": {
+      "advertising": "Advertising",
+      "other": "Other revenue (FoA)"
+    }
+  },
+  "latest": "Q3'26",
+  "quarters": [
+    {
+      "period": "Q1'25",
+      "revenue": 42314,
+      "operating_income": 17555,
+      "net_income": 16644,
+      "eps_basic": 6.59,
+      "eps_diluted": 6.43,
+      "segments": {
+        "foa": 41902,
+        "reality_labs": 412
+      },
+      "products": {
+        "advertising": 41392,
+        "other": 510
+      },
+      "foa_op": 21765,
+      "rl_op": -4210,
+      "dap_b": 3.43,
+      "capex": 13692,
+      "fcf": 10334,
+      "headcount": 76834,
+      "cash_sec_b": 70.23,
+      "impressions_pct": 5,
+      "price_pct": 10,
+      "operating_margin_pct": 41.5,
+      "dap_pct": null,
+      "yoy": {}
+    },
+    {
+      "period": "Q2'25",
+      "revenue": 47516,
+      "operating_income": 20441,
+      "net_income": 18337,
+      "eps_basic": 7.28,
+      "eps_diluted": 7.14,
+      "segments": {
+        "foa": 47146,
+        "reality_labs": 370
+      },
+      "products": {
+        "advertising": 46563,
+        "other": 583
+      },
+      "foa_op": 24971,
+      "rl_op": -4530,
+      "dap_b": 3.48,
+      "capex": 17012,
+      "fcf": 8549,
+      "headcount": 75945,
+      "cash_sec_b": 47.07,
+      "impressions_pct": 11,
+      "price_pct": 9,
+      "operating_margin_pct": 43.0,
+      "dap_pct": null,
+      "yoy": {}
+    },
+    {
+      "period": "Q3'25",
+      "revenue": 51242,
+      "operating_income": 20535,
+      "net_income": 2709,
+      "eps_basic": 1.08,
+      "eps_diluted": 1.05,
+      "segments": {
+        "foa": 50772,
+        "reality_labs": 470
+      },
+      "products": {
+        "advertising": 50082,
+        "other": 690
+      },
+      "foa_op": 24967,
+      "rl_op": -4432,
+      "dap_b": 3.54,
+      "capex": 19374,
+      "fcf": 10625,
+      "headcount": 78450,
+      "cash_sec_b": 44.45,
+      "impressions_pct": 14,
+      "price_pct": 10,
+      "operating_margin_pct": 40.1,
+      "dap_pct": null,
+      "yoy": {}
+    },
+    {
+      "period": "Q4'25",
+      "revenue": 59893,
+      "operating_income": 24745,
+      "net_income": 22768,
+      "eps_basic": 9.02,
+      "eps_diluted": 8.88,
+      "segments": {
+        "foa": 58938,
+        "reality_labs": 955
+      },
+      "products": {
+        "advertising": 58137,
+        "other": 801
+      },
+      "foa_op": 30766,
+      "rl_op": -6021,
+      "dap_b": 3.58,
+      "capex": 22137,
+      "fcf": 14077,
+      "headcount": 78865,
+      "cash_sec_b": 81.59,
+      "impressions_pct": 18,
+      "price_pct": 6,
+      "operating_margin_pct": 41.3,
+      "dap_pct": null,
+      "yoy": {}
+    },
+    {
+      "period": "Q1'26",
+      "revenue": 56311,
+      "operating_income": 22872,
+      "net_income": 26773,
+      "eps_basic": 10.57,
+      "eps_diluted": 10.44,
+      "segments": {
+        "foa": 55909,
+        "reality_labs": 402
+      },
+      "products": {
+        "advertising": 55024,
+        "other": 885
+      },
+      "foa_op": 26900,
+      "rl_op": -4028,
+      "dap_b": 3.56,
+      "capex": 19840,
+      "fcf": 12386,
+      "headcount": 77986,
+      "cash_sec_b": 81.18,
+      "impressions_pct": 19,
+      "price_pct": 12,
+      "operating_margin_pct": 40.6,
+      "dap_pct": 3.8,
+      "yoy": {
+        "revenue": 33.1,
+        "op": 30.3,
+        "net": 60.9,
+        "eps": 62.4,
+        "capex": 44.9,
+        "rl_loss": -4.3
+      }
+    },
+    {
+      "period": "Q2'26",
+      "revenue": 60801,
+      "operating_income": 18775,
+      "net_income": 15848,
+      "eps_basic": 6.23,
+      "eps_diluted": 6.18,
+      "segments": {
+        "foa": 60370,
+        "reality_labs": 431
+      },
+      "products": {
+        "advertising": 59363,
+        "other": 1007
+      },
+      "foa_op": 23394,
+      "rl_op": -4619,
+      "dap_b": 3.6,
+      "capex": 31078,
+      "fcf": 784,
+      "headcount": 75472,
+      "cash_sec_b": 90.26,
+      "impressions_pct": 14,
+      "price_pct": 12,
+      "operating_margin_pct": 30.9,
+      "dap_pct": 3.4,
+      "yoy": {
+        "revenue": 28.0,
+        "op": -8.2,
+        "net": -13.6,
+        "eps": -13.4,
+        "capex": 82.7,
+        "rl_loss": 2.0
+      }
+    },
+    {
+      "period": "Q3'26",
+      "revenue": 64601,
+      "operating_income": 12988,
+      "net_income": 9860,
+      "eps_basic": 3.86,
+      "eps_diluted": 3.83,
+      "segments": {
+        "foa": 64158,
+        "reality_labs": 443
+      },
+      "products": {
+        "advertising": 63061,
+        "other": 1097
+      },
+      "foa_op": 17117,
+      "rl_op": -4129,
+      "dap_b": 3.64,
+      "capex": 34906,
+      "fcf": -2120,
+      "headcount": 66775,
+      "cash_sec_b": 82.45,
+      "impressions_pct": 10,
+      "price_pct": 14,
+      "operating_margin_pct": 20.1,
+      "dap_pct": 2.8,
+      "yoy": {
+        "revenue": 26.1,
+        "op": -36.8,
+        "net": 264.0,
+        "eps": 264.8,
+        "capex": 80.2,
+        "rl_loss": -6.8
+      }
+    }
+  ],
+  "annuals": [
+    {
+      "period": "2023",
+      "revenue": 134902,
+      "operating_income": 46751,
+      "net_income": 39098,
+      "eps_basic": 15.19,
+      "eps_diluted": 14.87,
+      "segments": {
+        "foa": 133006,
+        "reality_labs": 1896
+      },
+      "products": {
+        "advertising": 131948,
+        "other": 1058
+      },
+      "foa_op": 62871,
+      "rl_op": -16120,
+      "dap_b": 3.19,
+      "capex": 28324,
+      "fcf": 43010,
+      "headcount": 67317,
+      "cash_sec_b": 65.4,
+      "impressions_pct": null,
+      "price_pct": null,
+      "operating_margin_pct": 34.7,
+      "dap_pct": null,
+      "yoy": {}
+    },
+    {
+      "period": "2024",
+      "revenue": 164501,
+      "operating_income": 69380,
+      "net_income": 62360,
+      "eps_basic": 24.61,
+      "eps_diluted": 23.86,
+      "segments": {
+        "foa": 162355,
+        "reality_labs": 2146
+      },
+      "products": {
+        "advertising": 160633,
+        "other": 1722
+      },
+      "foa_op": 87109,
+      "rl_op": -17729,
+      "dap_b": 3.35,
+      "capex": 39225,
+      "fcf": 52103,
+      "headcount": 74067,
+      "cash_sec_b": 77.81,
+      "impressions_pct": 11,
+      "price_pct": 10,
+      "operating_margin_pct": 42.2,
+      "dap_pct": 5.0,
+      "yoy": {
+        "revenue": 21.9,
+        "op": 48.4,
+        "net": 59.5,
+        "eps": 60.5,
+        "capex": 38.5
+      }
+    },
+    {
+      "period": "2025",
+      "revenue": 200966,
+      "operating_income": 83276,
+      "net_income": 60458,
+      "eps_basic": 23.98,
+      "eps_diluted": 23.49,
+      "segments": {
+        "foa": 198759,
+        "reality_labs": 2207
+      },
+      "products": {
+        "advertising": 196175,
+        "other": 2584
+      },
+      "foa_op": 102469,
+      "rl_op": -19193,
+      "dap_b": 3.58,
+      "capex": 72215,
+      "fcf": 43585,
+      "headcount": 78865,
+      "cash_sec_b": 81.59,
+      "impressions_pct": 12,
+      "price_pct": 9,
+      "operating_margin_pct": 41.4,
+      "dap_pct": 6.9,
+      "yoy": {
+        "revenue": 22.2,
+        "op": 20.0,
+        "net": -3.1,
+        "eps": -1.6,
+        "capex": 84.1
+      }
+    }
+  ]
+}
