@@ -41,6 +41,21 @@ class TestNormalize(unittest.TestCase):
         # (480126 - 384122) / 384122 * 100 = 25.0%
         self.assertAlmostEqual(q2["yoy"]["deliveries_pct"], 25.0, places=1)
 
+    def test_fsd_subscriptions(self):
+        # Active FSD subs (millions) from the letters' Operational
+        # Summary tables; series restated consistently across letters.
+        data = normalize()
+        got = {q["period"]: q["fsd_subs_m"] for q in data["quarters"]}
+        self.assertEqual(got, {
+            "Q1'25": 0.85, "Q2'25": 0.95, "Q3'25": 1.04, "Q4'25": 1.10,
+            "Q1'26": 1.28, "Q2'26": 1.48, "Q3'26": 1.74,
+        })
+        q3 = next(q for q in data["quarters"] if q["period"] == "Q3'26")
+        # (1.74 - 1.04) / 1.04 * 100 = 67.3%
+        self.assertAlmostEqual(q3["yoy"]["fsd_pct"], 67.3, places=1)
+        fy25 = next(a for a in data["annuals"] if a["period"] == "2025")
+        self.assertEqual(fy25["fsd_subs_m"], 1.10)
+
     def test_missing_stays_missing(self):
         data = normalize()
         fy23 = next(a for a in data["annuals"] if a["period"] == "2023")

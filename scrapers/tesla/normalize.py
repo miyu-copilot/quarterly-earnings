@@ -21,6 +21,15 @@ note; FY2025/FY2024 segment gross profit is the sum of the four quarterly
 letters. FY2023 segment gross profit is None: the 10-K reports only two
 reportable segments (Automotive incl. Services, Energy) for that split.
 
+Active FSD subscriptions (fsd_subs_m, millions, end of period) come from
+each letter's Operational Summary ("Active FSD Subscriptions"), a series
+Tesla began disclosing in the Q4'25 letter and restates consistently in
+each successive letter: Q1'25 0.85, Q2'25 0.95, Q3'25 1.04, Q4'25 1.10,
+Q1'26 1.28, Q2'26 1.48, Q3'26 1.74. The metric counts upfront payments
+plus monthly subscriptions and excludes free trials. FY2025 uses the
+Q4'25 year-end value (1.10); FY2023/FY2024 are None (not disclosed on a
+comparable basis in the curated letters).
+
 Provenance: quarterly figures come from each quarter's own 8-K update
 letter (Ex. 99.1) and tie to EDGAR XBRL company facts (frame values for
 revenue / operating income / net income / EPS). Q4'24 net income uses
@@ -54,7 +63,7 @@ PRODUCTS = ("automotive_sales", "regulatory_credits", "automotive_leasing")
 
 # Curated source facts. Keys: revenue, op_income, net_income, eps_basic,
 # eps_diluted, gross_profit, seg_rev{...}, seg_gp{...}, products{...},
-# deliveries, production, storage_gwh, stations, connectors.
+# deliveries, production, storage_gwh, stations, connectors, fsd_subs_m.
 FACTS = {
     "2023": {
         "revenue": 96773, "op_income": 8891, "net_income": 14997,
@@ -64,7 +73,7 @@ FACTS = {
         "products": {"automotive_sales": 78509, "regulatory_credits": 1790,
                      "automotive_leasing": 2120},
         "deliveries": 1808581, "production": 1845985, "storage_gwh": 14.7,
-        "stations": 5952, "connectors": 54892, "src": K_FY25,
+        "stations": 5952, "connectors": 54892, "fsd_subs_m": None, "src": K_FY25,
     },
     "2024": {
         "revenue": 97690, "op_income": 7076, "net_income": 7091,
@@ -74,7 +83,7 @@ FACTS = {
         "products": {"automotive_sales": 72480, "regulatory_credits": 2763,
                      "automotive_leasing": 1827},
         "deliveries": 1789226, "production": 1773443, "storage_gwh": 31.4,
-        "stations": 6975, "connectors": 65495, "src": K_FY25,
+        "stations": 6975, "connectors": 65495, "fsd_subs_m": None, "src": K_FY25,
     },
     "2025": {
         "revenue": 94827, "op_income": 4355, "net_income": 3794,
@@ -84,7 +93,7 @@ FACTS = {
         "products": {"automotive_sales": 65821, "regulatory_credits": 1993,
                      "automotive_leasing": 1712},
         "deliveries": 1636129, "production": 1654667, "storage_gwh": 46.7,
-        "stations": 8182, "connectors": 77682, "src": K_FY25,
+        "stations": 8182, "connectors": 77682, "fsd_subs_m": 1.1, "src": K_FY25,
     },
     "Q1'25": {
         "revenue": 19335, "op_income": 399, "net_income": 409,
@@ -94,7 +103,7 @@ FACTS = {
         "products": {"automotive_sales": 12925, "regulatory_credits": 595,
                      "automotive_leasing": 447},
         "deliveries": 336681, "production": 362615, "storage_gwh": 10.4,
-        "stations": 7131, "connectors": 67316, "src": L_Q1_25,
+        "stations": 7131, "connectors": 67316, "fsd_subs_m": 0.85, "src": L_Q1_25,
     },
     "Q2'25": {
         "revenue": 22496, "op_income": 923, "net_income": 1172,
@@ -104,7 +113,7 @@ FACTS = {
         "products": {"automotive_sales": 15787, "regulatory_credits": 439,
                      "automotive_leasing": 435},
         "deliveries": 384122, "production": 410244, "storage_gwh": 9.6,
-        "stations": 7377, "connectors": 70228, "src": L_Q2_25,
+        "stations": 7377, "connectors": 70228, "fsd_subs_m": 0.95, "src": L_Q2_25,
     },
     "Q3'25": {
         "revenue": 28095, "op_income": 1624, "net_income": 1373,
@@ -114,7 +123,7 @@ FACTS = {
         "products": {"automotive_sales": 20359, "regulatory_credits": 417,
                      "automotive_leasing": 429},
         "deliveries": 497099, "production": 447450, "storage_gwh": 12.5,
-        "stations": 7753, "connectors": 73817, "src": L_Q3_25,
+        "stations": 7753, "connectors": 73817, "fsd_subs_m": 1.04, "src": L_Q3_25,
     },
     "Q4'25": {
         "revenue": 24901, "op_income": 1409, "net_income": 840,
@@ -124,7 +133,7 @@ FACTS = {
         "products": {"automotive_sales": 16750, "regulatory_credits": 542,
                      "automotive_leasing": 401},
         "deliveries": 418227, "production": 434358, "storage_gwh": 14.2,
-        "stations": 8182, "connectors": 77682, "src": L_Q4_25,
+        "stations": 8182, "connectors": 77682, "fsd_subs_m": 1.1, "src": L_Q4_25,
     },
     "Q1'26": {
         "revenue": 22387, "op_income": 941, "net_income": 477,
@@ -134,7 +143,7 @@ FACTS = {
         "products": {"automotive_sales": 15473, "regulatory_credits": 380,
                      "automotive_leasing": 381},
         "deliveries": 358023, "production": 408386, "storage_gwh": 8.8,
-        "stations": 8463, "connectors": 79918, "src": L_Q1_26,
+        "stations": 8463, "connectors": 79918, "fsd_subs_m": 1.28, "src": L_Q1_26,
     },
     "Q2'26": {
         "revenue": 28236, "op_income": 398, "net_income": 1114,
@@ -144,7 +153,7 @@ FACTS = {
         "products": {"automotive_sales": 20006, "regulatory_credits": 146,
                      "automotive_leasing": 364},
         "deliveries": 480126, "production": 451758, "storage_gwh": 13.5,
-        "stations": 8704, "connectors": 82357, "src": L_Q2_26,
+        "stations": 8704, "connectors": 82357, "fsd_subs_m": 1.48, "src": L_Q2_26,
     },
     "Q3'26": {
         "revenue": 28046, "op_income": 718, "net_income": 787,
@@ -154,7 +163,7 @@ FACTS = {
         "products": {"automotive_sales": 20094, "regulatory_credits": 113,
                      "automotive_leasing": 353},
         "deliveries": 486532, "production": 464391, "storage_gwh": 13.7,
-        "stations": 8904, "connectors": 84465, "src": L_Q3_26,
+        "stations": 8904, "connectors": 84465, "fsd_subs_m": 1.74, "src": L_Q3_26,
     },
 }
 
@@ -202,6 +211,7 @@ def build_period(label, yoy=None):
         "products": dict(f["products"]),
         "deliveries": f["deliveries"],
         "production": f["production"],
+        "fsd_subs_m": f.get("fsd_subs_m"),
         "storage_gwh": f["storage_gwh"],
         "stations": f["stations"],
         "connectors": f["connectors"],
@@ -216,6 +226,7 @@ def build_period(label, yoy=None):
             "net_income_delta": f["net_income"] - y["net_income"],
             "deliveries_pct": _pct(f["deliveries"], y["deliveries"]),
             "storage_pct": _pct(f["storage_gwh"], y["storage_gwh"]),
+            "fsd_pct": _pct(f.get("fsd_subs_m"), y.get("fsd_subs_m")),
         }
     else:
         row["yoy"] = None

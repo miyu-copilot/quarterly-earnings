@@ -43,6 +43,7 @@
       },
       "deliveries": 336681,
       "production": 362615,
+      "fsd_subs_m": 0.85,
       "storage_gwh": 10.4,
       "stations": 7131,
       "connectors": 67316,
@@ -88,6 +89,7 @@
       },
       "deliveries": 384122,
       "production": 410244,
+      "fsd_subs_m": 0.95,
       "storage_gwh": 9.6,
       "stations": 7377,
       "connectors": 70228,
@@ -133,6 +135,7 @@
       },
       "deliveries": 497099,
       "production": 447450,
+      "fsd_subs_m": 1.04,
       "storage_gwh": 12.5,
       "stations": 7753,
       "connectors": 73817,
@@ -178,6 +181,7 @@
       },
       "deliveries": 418227,
       "production": 434358,
+      "fsd_subs_m": 1.1,
       "storage_gwh": 14.2,
       "stations": 8182,
       "connectors": 77682,
@@ -223,6 +227,7 @@
       },
       "deliveries": 358023,
       "production": 408386,
+      "fsd_subs_m": 1.28,
       "storage_gwh": 8.8,
       "stations": 8463,
       "connectors": 79918,
@@ -237,7 +242,8 @@
         "op_income_delta": 542,
         "net_income_delta": 68,
         "deliveries_pct": 6.3,
-        "storage_pct": -15.4
+        "storage_pct": -15.4,
+        "fsd_pct": 50.6
       }
     },
     {
@@ -275,6 +281,7 @@
       },
       "deliveries": 480126,
       "production": 451758,
+      "fsd_subs_m": 1.48,
       "storage_gwh": 13.5,
       "stations": 8704,
       "connectors": 82357,
@@ -289,7 +296,8 @@
         "op_income_delta": -525,
         "net_income_delta": -58,
         "deliveries_pct": 25.0,
-        "storage_pct": 40.6
+        "storage_pct": 40.6,
+        "fsd_pct": 55.8
       }
     },
     {
@@ -327,6 +335,7 @@
       },
       "deliveries": 486532,
       "production": 464391,
+      "fsd_subs_m": 1.74,
       "storage_gwh": 13.7,
       "stations": 8904,
       "connectors": 84465,
@@ -341,7 +350,8 @@
         "op_income_delta": -906,
         "net_income_delta": -586,
         "deliveries_pct": -2.1,
-        "storage_pct": 9.6
+        "storage_pct": 9.6,
+        "fsd_pct": 67.3
       }
     }
   ],
@@ -381,6 +391,7 @@
       },
       "deliveries": 1808581,
       "production": 1845985,
+      "fsd_subs_m": null,
       "storage_gwh": 14.7,
       "stations": 5952,
       "connectors": 54892,
@@ -427,6 +438,7 @@
       },
       "deliveries": 1789226,
       "production": 1773443,
+      "fsd_subs_m": null,
       "storage_gwh": 31.4,
       "stations": 6975,
       "connectors": 65495,
@@ -442,7 +454,8 @@
         "op_income_delta": -1815,
         "net_income_delta": -7906,
         "deliveries_pct": -1.1,
-        "storage_pct": 113.6
+        "storage_pct": 113.6,
+        "fsd_pct": null
       }
     },
     {
@@ -480,6 +493,7 @@
       },
       "deliveries": 1636129,
       "production": 1654667,
+      "fsd_subs_m": 1.1,
       "storage_gwh": 46.7,
       "stations": 8182,
       "connectors": 77682,
@@ -495,7 +509,8 @@
         "op_income_delta": -2721,
         "net_income_delta": -3297,
         "deliveries_pct": -8.6,
-        "storage_pct": 48.7
+        "storage_pct": 48.7,
+        "fsd_pct": null
       }
     }
   ]

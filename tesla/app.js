@@ -11,6 +11,40 @@ const fmtPct = (v) => v == null ? "—" : (v > 0 ? "+" : "") + v.toFixed(1) + "%
 const fmtEps = (v) => v == null ? "—" : (v < 0 ? "−$" : "$") + Math.abs(v).toFixed(2);
 const fmtInt = (v) => v == null ? "—" : Math.round(v).toLocaleString("en-US");
 const fmtGwh = (v) => v == null ? "—" : v.toFixed(1) + " GWh";
+const fmtFsd = (v) => v == null ? "—" : v.toFixed(2) + "M";
+
+/* FSD color from each quarter's update letter — attach rates, approvals,
+   Robotaxi milestones, and how FSD showed up in the revenue bridge.
+   Keyed by period; add the new quarter's notes when its letter lands. */
+const FSD_NOTES = {
+  "Q3'26": [
+    "Attach: North America FSD attach jumped nearly twenty percentage " +
+    "points sequentially — over ~75% of new deliveries included an FSD " +
+    "subscription, up from >55% in Q2'26. Tesla's words: “We believe " +
+    "that FSD is driving demand in markets where it is available.”",
+    "Money: the letter credits FSD subscriptions as the primary driver " +
+    "of higher automotive ancillary sales — a growing, high-margin " +
+    "tailwind that partly offset lower vehicle ASP and the drop in " +
+    "regulatory credits to $0.11B (from $0.42B in Q3'25).",
+    "Europe: four new approvals since Q2 (Croatia, Slovenia, Czech " +
+    "Republic, Slovakia) take FSD to nine EU countries; over 100,000 " +
+    "customers there have logged more than 160 million km on FSD.",
+    "Robotaxi: Cybercab rides began September 3 in Austin. Cumulative " +
+    "unsupervised Robotaxi miles reached nearly two million by " +
+    "quarter-end — up eightfold QoQ on sustained double-digit weekly " +
+    "growth — with Austin hours now 6am to midnight.",
+  ],
+  "Q2'26": [
+    "Attach: record North America FSD attach — over 55% of new " +
+    "deliveries included an FSD subscription — and record net new " +
+    "subscriptions in the quarter.",
+    "Money: higher automotive ancillary sales, primarily driven by " +
+    "FSD subscriptions, were a named revenue and profit tailwind.",
+    "Europe: approvals in Lithuania, Estonia, Denmark and Belgium " +
+    "followed the Netherlands; customers there had driven over " +
+    "50 million km on FSD as of July.",
+  ],
+};
 
 function el(tag, cls, text) {
   const e = document.createElement(tag);
@@ -180,6 +214,10 @@ function renderKpis(root, latest) {
     latest.yoy && latest.yoy.deliveries_pct >= 0 ? "up" : "down"));
   grid.appendChild(kpiCard("Operating margin", fmtPct(latest.op_margin_pct)));
   grid.appendChild(kpiCard("Gross margin", fmtPct(latest.gross_margin_pct)));
+  grid.appendChild(kpiCard("Active FSD subs", fmtFsd(latest.fsd_subs_m),
+    latest.yoy && latest.yoy.fsd_pct != null ?
+      fmtPct(latest.yoy.fsd_pct) + " YoY" : null,
+    latest.yoy && latest.yoy.fsd_pct >= 0 ? "up" : "down"));
   card.appendChild(grid);
   root.appendChild(card);
 }
@@ -294,6 +332,7 @@ function renderTables(root, quarters, annuals) {
   o.appendChild(moneyTable(quarters, [
     ["Production", (p) => fmtInt(p.production)],
     ["Deliveries", (p) => fmtInt(p.deliveries)],
+    ["Active FSD subs", (p) => fmtFsd(p.fsd_subs_m)],
     ["Storage deployed", (p) => fmtGwh(p.storage_gwh)],
     ["Supercharger stations", (p) => fmtInt(p.stations)],
     ["Connectors", (p) => fmtInt(p.connectors)],
@@ -328,6 +367,14 @@ function renderInsights(root, data) {
     `grew to ${fmtB(fy.segments.energy.revenue)} and Services & Other to ` +
     `${fmtB(fy.segments.services.revenue)}; FY deliveries were ` +
     `${fmtInt(fy.deliveries)}.`,
+    `FSD is becoming a real business line: active FSD subscriptions hit ` +
+    `${fmtFsd(latest.fsd_subs_m)} in ${latest.period}` +
+    (latest.yoy && latest.yoy.fsd_pct != null ?
+      ` (${fmtPct(latest.yoy.fsd_pct)} YoY)` : "") +
+    `, and the letter names FSD subscriptions as the main driver of ` +
+    `higher automotive ancillary sales — recurring software revenue ` +
+    `growing even in a flat delivery quarter. See the FSD & Robotaxi ` +
+    `card below for attach rates and milestones.`,
   ];
   if (svcRecord) {
     items.push(`Services & Other set a record in ${latest.period} at ` +
@@ -336,6 +383,48 @@ function renderInsights(root, data) {
   }
   items.forEach((t) => ul.appendChild(el("li", null, t)));
   card.appendChild(ul);
+  root.appendChild(card);
+}
+
+function renderFsd(root, data) {
+  const qs = data.quarters.filter((q) => q.fsd_subs_m != null);
+  if (!qs.length) return;
+  const latest = qs[qs.length - 1];
+  const all = data.quarters;
+  const li = all.indexOf(latest);
+  const prev = li > 0 ? all[li - 1] : null;
+  const card = el("div", "card");
+  card.appendChild(el("h2", null, "FSD & Robotaxi"));
+  card.appendChild(el("p", "sub",
+    "Active FSD subscriptions (millions, end of period · upfront + monthly, " +
+    "excl. free trials) from each update letter's Operational Summary"));
+  const ul = el("ul", "insights");
+  const trend = qs.map((q) => q.period + " " + fmtFsd(q.fsd_subs_m)).join(" → ");
+  let head = `Active FSD subscriptions reached ${fmtFsd(latest.fsd_subs_m)} ` +
+    `in ${latest.period}`;
+  if (prev && prev.fsd_subs_m != null) {
+    const adds = Math.round((latest.fsd_subs_m - prev.fsd_subs_m) * 1000);
+    head += ` — a record +${fmtInt(adds)}k net adds in the quarter`;
+  }
+  if (latest.yoy && latest.yoy.fsd_pct != null) {
+    head += `, ${fmtPct(latest.yoy.fsd_pct)} YoY`;
+  }
+  head += `. Trend: ${trend}.`;
+  ul.appendChild(el("li", null, head));
+  (FSD_NOTES[latest.period] || []).forEach((t) =>
+    ul.appendChild(el("li", null, t)));
+  card.appendChild(ul);
+  card.appendChild(moneyTable(qs, [
+    ["Active FSD subs", (p) => fmtFsd(p.fsd_subs_m)],
+    ["Net adds (k)", (p) => {
+      const i = all.indexOf(p);
+      const pr = i > 0 ? all[i - 1] : null;
+      return pr && pr.fsd_subs_m != null ?
+        "+" + fmtInt(Math.round((p.fsd_subs_m - pr.fsd_subs_m) * 1000)) : "—";
+    }],
+    ["YoY", (p) => p.yoy && p.yoy.fsd_pct != null ?
+      fmtPct(p.yoy.fsd_pct) : "—"],
+  ]));
   root.appendChild(card);
 }
 
@@ -360,6 +449,7 @@ async function main() {
     `(${fmtPct(latest.yoy.revenue_pct)} YoY)`;
   renderKpis(root, latest);
   renderInsights(root, data);
+  renderFsd(root, data);
   renderTrend(root, data.quarters);
   renderProfit(root, data.quarters, data.annuals);
   renderTables(root, data.quarters, data.annuals);
