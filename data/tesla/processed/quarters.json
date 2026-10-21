@@ -1,0 +1,450 @@
+{
+  "company": {
+    "name": "Tesla, Inc.",
+    "ticker": "TSLA",
+    "exchange": "Nasdaq",
+    "currency": "USD",
+    "units": "$ millions"
+  },
+  "latest": "Q2'26",
+  "quarters": [
+    {
+      "period": "Q1'25",
+      "revenue": 19335,
+      "op_income": 399,
+      "net_income": 409,
+      "eps_basic": 0.13,
+      "eps_diluted": 0.12,
+      "gross_profit": 3153,
+      "gross_margin_pct": 16.3,
+      "op_margin_pct": 2.1,
+      "net_margin_pct": 2.1,
+      "segments": {
+        "automotive": {
+          "revenue": 13967,
+          "share_pct": 72.2,
+          "gross_profit": 2267
+        },
+        "energy": {
+          "revenue": 2730,
+          "share_pct": 14.1,
+          "gross_profit": 785
+        },
+        "services": {
+          "revenue": 2638,
+          "share_pct": 13.6,
+          "gross_profit": 101
+        }
+      },
+      "products": {
+        "automotive_sales": 12925,
+        "regulatory_credits": 595,
+        "automotive_leasing": 447
+      },
+      "deliveries": 336681,
+      "production": 362615,
+      "storage_gwh": 10.4,
+      "stations": 7131,
+      "connectors": 67316,
+      "source": {
+        "form": "8-K",
+        "accession": "0001628280-25-018851",
+        "filed": "2025-04-22"
+      },
+      "yoy": null
+    },
+    {
+      "period": "Q2'25",
+      "revenue": 22496,
+      "op_income": 923,
+      "net_income": 1172,
+      "eps_basic": 0.36,
+      "eps_diluted": 0.33,
+      "gross_profit": 3878,
+      "gross_margin_pct": 17.2,
+      "op_margin_pct": 4.1,
+      "net_margin_pct": 5.2,
+      "segments": {
+        "automotive": {
+          "revenue": 16661,
+          "share_pct": 74.1,
+          "gross_profit": 2866
+        },
+        "energy": {
+          "revenue": 2789,
+          "share_pct": 12.4,
+          "gross_profit": 846
+        },
+        "services": {
+          "revenue": 3046,
+          "share_pct": 13.5,
+          "gross_profit": 166
+        }
+      },
+      "products": {
+        "automotive_sales": 15787,
+        "regulatory_credits": 439,
+        "automotive_leasing": 435
+      },
+      "deliveries": 384122,
+      "production": 410244,
+      "storage_gwh": 9.6,
+      "stations": 7377,
+      "connectors": 70228,
+      "source": {
+        "form": "8-K",
+        "accession": "0001628280-25-035738",
+        "filed": "2025-07-23"
+      },
+      "yoy": null
+    },
+    {
+      "period": "Q3'25",
+      "revenue": 28095,
+      "op_income": 1624,
+      "net_income": 1373,
+      "eps_basic": 0.43,
+      "eps_diluted": 0.39,
+      "gross_profit": 5054,
+      "gross_margin_pct": 18.0,
+      "op_margin_pct": 5.8,
+      "net_margin_pct": 4.9,
+      "segments": {
+        "automotive": {
+          "revenue": 21205,
+          "share_pct": 75.5,
+          "gross_profit": 3615
+        },
+        "energy": {
+          "revenue": 3415,
+          "share_pct": 12.2,
+          "gross_profit": 1073
+        },
+        "services": {
+          "revenue": 3475,
+          "share_pct": 12.4,
+          "gross_profit": 366
+        }
+      },
+      "products": {
+        "automotive_sales": 20359,
+        "regulatory_credits": 417,
+        "automotive_leasing": 429
+      },
+      "deliveries": 497099,
+      "production": 447450,
+      "storage_gwh": 12.5,
+      "stations": 7753,
+      "connectors": 73817,
+      "source": {
+        "form": "8-K",
+        "accession": "0001628280-25-045861",
+        "filed": "2025-10-22"
+      },
+      "yoy": null
+    },
+    {
+      "period": "Q4'25",
+      "revenue": 24901,
+      "op_income": 1409,
+      "net_income": 840,
+      "eps_basic": 0.26,
+      "eps_diluted": 0.24,
+      "gross_profit": 5009,
+      "gross_margin_pct": 20.1,
+      "op_margin_pct": 5.7,
+      "net_margin_pct": 3.4,
+      "segments": {
+        "automotive": {
+          "revenue": 17693,
+          "share_pct": 71.1,
+          "gross_profit": 3613
+        },
+        "energy": {
+          "revenue": 3837,
+          "share_pct": 15.4,
+          "gross_profit": 1098
+        },
+        "services": {
+          "revenue": 3371,
+          "share_pct": 13.5,
+          "gross_profit": 298
+        }
+      },
+      "products": {
+        "automotive_sales": 16750,
+        "regulatory_credits": 542,
+        "automotive_leasing": 401
+      },
+      "deliveries": 418227,
+      "production": 434358,
+      "storage_gwh": 14.2,
+      "stations": 8182,
+      "connectors": 77682,
+      "source": {
+        "form": "8-K",
+        "accession": "0001628280-26-003837",
+        "filed": "2026-01-28"
+      },
+      "yoy": null
+    },
+    {
+      "period": "Q1'26",
+      "revenue": 22387,
+      "op_income": 941,
+      "net_income": 477,
+      "eps_basic": 0.15,
+      "eps_diluted": 0.13,
+      "gross_profit": 4720,
+      "gross_margin_pct": 21.1,
+      "op_margin_pct": 4.2,
+      "net_margin_pct": 2.1,
+      "segments": {
+        "automotive": {
+          "revenue": 16234,
+          "share_pct": 72.5,
+          "gross_profit": 3422
+        },
+        "energy": {
+          "revenue": 2408,
+          "share_pct": 10.8,
+          "gross_profit": 952
+        },
+        "services": {
+          "revenue": 3745,
+          "share_pct": 16.7,
+          "gross_profit": 346
+        }
+      },
+      "products": {
+        "automotive_sales": 15473,
+        "regulatory_credits": 380,
+        "automotive_leasing": 381
+      },
+      "deliveries": 358023,
+      "production": 408386,
+      "storage_gwh": 8.8,
+      "stations": 8463,
+      "connectors": 79918,
+      "source": {
+        "form": "8-K",
+        "accession": "0001628280-26-026551",
+        "filed": "2026-04-22"
+      },
+      "yoy": {
+        "vs": "Q1'25",
+        "revenue_pct": 15.8,
+        "op_income_delta": 542,
+        "net_income_delta": 68,
+        "deliveries_pct": 6.3,
+        "storage_pct": -15.4
+      }
+    },
+    {
+      "period": "Q2'26",
+      "revenue": 28236,
+      "op_income": 398,
+      "net_income": 1114,
+      "eps_basic": 0.34,
+      "eps_diluted": 0.32,
+      "gross_profit": 4751,
+      "gross_margin_pct": 16.8,
+      "op_margin_pct": 1.4,
+      "net_margin_pct": 3.9,
+      "segments": {
+        "automotive": {
+          "revenue": 20516,
+          "share_pct": 72.7,
+          "gross_profit": 3463
+        },
+        "energy": {
+          "revenue": 3139,
+          "share_pct": 11.1,
+          "gross_profit": 640
+        },
+        "services": {
+          "revenue": 4581,
+          "share_pct": 16.2,
+          "gross_profit": 648
+        }
+      },
+      "products": {
+        "automotive_sales": 20006,
+        "regulatory_credits": 146,
+        "automotive_leasing": 364
+      },
+      "deliveries": 480126,
+      "production": 451758,
+      "storage_gwh": 13.5,
+      "stations": 8704,
+      "connectors": 82357,
+      "source": {
+        "form": "8-K",
+        "accession": "0001628280-26-049213",
+        "filed": "2026-07-22"
+      },
+      "yoy": {
+        "vs": "Q2'25",
+        "revenue_pct": 25.5,
+        "op_income_delta": -525,
+        "net_income_delta": -58,
+        "deliveries_pct": 25.0,
+        "storage_pct": 40.6
+      }
+    }
+  ],
+  "annuals": [
+    {
+      "period": "2023",
+      "revenue": 96773,
+      "op_income": 8891,
+      "net_income": 14997,
+      "eps_basic": 4.73,
+      "eps_diluted": 4.3,
+      "gross_profit": 17660,
+      "gross_margin_pct": 18.2,
+      "op_margin_pct": 9.2,
+      "net_margin_pct": 15.5,
+      "segments": {
+        "automotive": {
+          "revenue": 82419,
+          "share_pct": 85.2,
+          "gross_profit": null
+        },
+        "energy": {
+          "revenue": 6035,
+          "share_pct": 6.2,
+          "gross_profit": null
+        },
+        "services": {
+          "revenue": 8319,
+          "share_pct": 8.6,
+          "gross_profit": null
+        }
+      },
+      "products": {
+        "automotive_sales": 78509,
+        "regulatory_credits": 1790,
+        "automotive_leasing": 2120
+      },
+      "deliveries": 1808581,
+      "production": 1845985,
+      "storage_gwh": 14.7,
+      "stations": 5952,
+      "connectors": 54892,
+      "source": {
+        "form": "10-K",
+        "accession": "0001628280-26-003952",
+        "filed": "2026-01-29",
+        "note": "Audited FY2023-FY2025 statements; revenue note (R44) and segment note (R93)."
+      },
+      "yoy": null
+    },
+    {
+      "period": "2024",
+      "revenue": 97690,
+      "op_income": 7076,
+      "net_income": 7091,
+      "eps_basic": 2.23,
+      "eps_diluted": 2.04,
+      "gross_profit": 17450,
+      "gross_margin_pct": 17.9,
+      "op_margin_pct": 7.2,
+      "net_margin_pct": 7.3,
+      "segments": {
+        "automotive": {
+          "revenue": 77070,
+          "share_pct": 78.9,
+          "gross_profit": 14197
+        },
+        "energy": {
+          "revenue": 10086,
+          "share_pct": 10.3,
+          "gross_profit": 2640
+        },
+        "services": {
+          "revenue": 10534,
+          "share_pct": 10.8,
+          "gross_profit": 613
+        }
+      },
+      "products": {
+        "automotive_sales": 72480,
+        "regulatory_credits": 2763,
+        "automotive_leasing": 1827
+      },
+      "deliveries": 1789226,
+      "production": 1773443,
+      "storage_gwh": 31.4,
+      "stations": 6975,
+      "connectors": 65495,
+      "source": {
+        "form": "10-K",
+        "accession": "0001628280-26-003952",
+        "filed": "2026-01-29",
+        "note": "Audited FY2023-FY2025 statements; revenue note (R44) and segment note (R93)."
+      },
+      "yoy": {
+        "vs": "2023",
+        "revenue_pct": 0.9,
+        "op_income_delta": -1815,
+        "net_income_delta": -7906,
+        "deliveries_pct": -1.1,
+        "storage_pct": 113.6
+      }
+    },
+    {
+      "period": "2025",
+      "revenue": 94827,
+      "op_income": 4355,
+      "net_income": 3794,
+      "eps_basic": 1.18,
+      "eps_diluted": 1.08,
+      "gross_profit": 17094,
+      "gross_margin_pct": 18.0,
+      "op_margin_pct": 4.6,
+      "net_margin_pct": 4.0,
+      "segments": {
+        "automotive": {
+          "revenue": 69526,
+          "share_pct": 73.3,
+          "gross_profit": 12361
+        },
+        "energy": {
+          "revenue": 12771,
+          "share_pct": 13.5,
+          "gross_profit": 3802
+        },
+        "services": {
+          "revenue": 12530,
+          "share_pct": 13.2,
+          "gross_profit": 931
+        }
+      },
+      "products": {
+        "automotive_sales": 65821,
+        "regulatory_credits": 1993,
+        "automotive_leasing": 1712
+      },
+      "deliveries": 1636129,
+      "production": 1654667,
+      "storage_gwh": 46.7,
+      "stations": 8182,
+      "connectors": 77682,
+      "source": {
+        "form": "10-K",
+        "accession": "0001628280-26-003952",
+        "filed": "2026-01-29",
+        "note": "Audited FY2023-FY2025 statements; revenue note (R44) and segment note (R93)."
+      },
+      "yoy": {
+        "vs": "2024",
+        "revenue_pct": -2.9,
+        "op_income_delta": -2721,
+        "net_income_delta": -3297,
+        "deliveries_pct": -8.6,
+        "storage_pct": 48.7
+      }
+    }
+  ]
+}
