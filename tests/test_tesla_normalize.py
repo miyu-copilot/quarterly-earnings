@@ -15,8 +15,8 @@ RAW = os.path.join("data", "tesla", "raw")
 class TestNormalize(unittest.TestCase):
     def test_bundle_shape(self):
         data = normalize()
-        self.assertEqual(data["latest"], "Q2'26")
-        self.assertEqual(len(data["quarters"]), 6)
+        self.assertEqual(data["latest"], "Q3'26")
+        self.assertEqual(len(data["quarters"]), 7)
         self.assertEqual(len(data["annuals"]), 3)
 
     def test_ties(self):
@@ -57,6 +57,7 @@ class TestNormalize(unittest.TestCase):
             "Q4'25": "tsla-20260128-ex99.htm",
             "Q1'26": "tsla-20260422-ex99.htm",
             "Q2'26": "tsla-20260722-ex99.htm",
+            "Q3'26": "tsla-20261021-ex99.htm",
         }
         for period, name in letters.items():
             path = os.path.join(RAW, name)

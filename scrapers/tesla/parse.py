@@ -53,7 +53,7 @@ def _num(tok):
 def row_values(block, label, ncols):
     """Find 'label v1 ... vn' in block (footnote markers tolerated)."""
     pat = re.compile(
-        re.escape(label) + r"(?:\s+\(\d+\))?\s+((?:"
+        re.escape(label) + r"(?:\s*\(\d+\))?\s+((?:"
         + VAL + r")(?:\s+(?:" + VAL + r")){" + str(ncols - 1) + r"})")
     m = pat.search(block)
     if not m:
